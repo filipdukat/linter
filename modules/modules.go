@@ -10,11 +10,10 @@ import (
 	"golang.org/x/tools/go/ast/inspector"
 )
 
-// NewAnalyzer returns a new *analysis.Analyzer configured for searching for obsolete libs.
 func NewAnalyzer(libs []string) *analysis.Analyzer {
 	return &analysis.Analyzer{
-		Name:     "libraries",
-		Doc:      "Checks for flagged libraries in a project.",
+		Name:     "modules",
+		Doc:      "Checks for flagged modules in a project.",
 		Run:      run(libs),
 		Requires: []*analysis.Analyzer{inspect.Analyzer},
 	}
